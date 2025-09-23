@@ -16,7 +16,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  // Let Next.js/Vercel infer the output tracing root. Custom roots can break deployment paths.
+  // outputFileTracingRoot: path.resolve(__dirname, '../../'),
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {
