@@ -11,7 +11,6 @@ import { useI18n } from '@/lib/i18n/I18nProvider';
 
 export default function Navigation() {
   const { locale, t } = useI18n();
-  console.debug('[Navigation] render locale=', locale, 'cta.start=', t('cta.start'));
 
   const navItems = [
     { label: t('nav.pricing'), href: '#pricing', rel: 'noopener noreferrer' },

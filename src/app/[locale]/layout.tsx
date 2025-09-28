@@ -9,15 +9,15 @@ export async function generateStaticParams() {
 }
 
 export const dynamicParams = false;
-
 export default async function LocaleLayout({
   children,
   params,
 }: {
   children: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
-  const locale = locales.includes(params.locale) ? params.locale : defaultLocale;
+  const resolved = await params;
+  const locale = locales.includes(resolved.locale) ? resolved.locale : defaultLocale;
   const dict = await getDictionary(locale);
   return (
     <html lang={locale}>
