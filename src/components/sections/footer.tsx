@@ -3,7 +3,6 @@ import { Facebook, Instagram, Phone, Mail, Youtube, ArrowUpRight, Globe, DollarS
 import ShinyText from '../ui/ShinyText';
 import GradientText from '../ui/GradientText';
 
-// Left column contact details and social
 const ContactItem = ({ icon: Icon, children }: { icon: React.ElementType; children: React.ReactNode }) => (
   <div className="flex items-center gap-3 text-sm text-neutral-600">
     <Icon className="h-5 w-5 text-neutral-800" />
@@ -30,12 +29,9 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t">
       <div className="container py-14">
-        {/* Top grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Brand + contact */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3">
-              {/* Using text lockup to avoid external asset dependency */}
               <div className="text-2xl font-semibold tracking-tight text-accent-foreground">
                 <GradientText animationSpeed={3} className="text-2xl font-semibold tracking-tight" colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} showBorder={false}>
                   OPENCONTAINER
@@ -59,12 +55,12 @@ const Footer = () => {
 
             <div className="mt-6 flex items-center gap-4">
               {[
-                { Icon: Facebook, label: 'Facebook' },
-                { Icon: XIcon, label: 'X' },
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: Youtube, label: 'YouTube' },
-              ].map(({ Icon, label }) => (
-                <a key={label} href="#" aria-label={label} className="h-10 w-10 rounded-full border flex items-center justify-center text-neutral-800 hover:bg-neutral-100 transition-colors">
+                { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com/opencontainer' },
+                { Icon: XIcon, label: 'X', href: 'https://twitter.com/opencontainer' },
+                { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com/opencontainer' },
+                { Icon: Youtube, label: 'YouTube', href: 'https://youtube.com/opencontainer' },
+              ].map(({ Icon, label, href }) => (
+                <a key={label} href={href} aria-label={label} className="h-10 w-10 rounded-full border flex items-center justify-center text-neutral-800 hover:bg-neutral-100 transition-colors">
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
@@ -87,12 +83,12 @@ const Footer = () => {
             <LinkCol
               title="Müşteri Hizmetleri"
               items={[
-                { label: 'KVKK Aydınlatma Metni', href: '#' },
-                { label: 'Açık Rıza Metni', href: '#' },
-                { label: 'Kullanıcı Sözleşmesi', href: '#' },
-                { label: 'Mesafeli Satış Sözleşmesi', href: '#' },
-                { label: 'Gizlilik ve Çerez Politikası', href: '#' },
-                { label: 'SSS', href: '#' },
+                { label: 'KVKK Aydınlatma Metni', href: 'https://opencontainer.co/tr/personel-data' },
+                { label: 'Açık Rıza Metni', href: 'https://opencontainer.co/tr/service-aggrement' },
+                { label: 'Kullanıcı Sözleşmesi', href: 'https://opencontainer.co/tr/user-aggrement' },
+                { label: 'Mesafeli Satış Sözleşmesi', href: 'https://opencontainer.co/tr/distance-sales' },
+                { label: 'Gizlilik ve Çerez Politikası', href: 'https://opencontainer.co/tr/privacy-policy' },
+                { label: 'SSS', href: 'https://opencontainer.co/tr/FAQs' },
               ]}
             />
           </div>
@@ -124,7 +120,7 @@ const Footer = () => {
                 <label className="mt-4 flex items-start gap-2 text-[13px] text-neutral-600">
                   <input type="checkbox" className="mt-1 h-4 w-4 border" />
                   <span>
-                    Abone olarak, aşağıdaki şartları kabul edersiniz: <a href="#" className="underline font-medium">Açık Rıza Metni</a> ve <a href="#" className="underline font-medium">Gizlilik ve Çerez Politikası</a>.
+                    Abone olarak, aşağıdaki şartları kabul edersiniz: <a target='_blank' href="https://opencontainer.co/tr/service-aggrement" className="underline font-medium">Açık Rıza Metni</a> ve <a target='_blank' href="https://opencontainer.co/tr/privacy-policy" className="underline font-medium">Gizlilik ve Çerez Politikası</a>.
                   </span>
                 </label>
               </form>
@@ -148,14 +144,14 @@ const Footer = () => {
           <p className="text-sm text-neutral-600">©2025 Orizora. Tüm Hakları Saklıdır.</p>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-neutral-700">
+            {/* <div className="flex items-center gap-2 text-sm text-neutral-700">
               <DollarSign className="h-4 w-4" />
               <select className="bg-transparent outline-none">
                 <option>USD</option>
                 <option>EUR</option>
                 <option>TRY</option>
               </select>
-            </div>
+            </div> */}
             <div className="flex items-center gap-2 text-sm text-neutral-700">
               <Globe className="h-4 w-4" />
               <select className="bg-transparent outline-none">

@@ -20,7 +20,7 @@ const TestimonialGuillaume = () => {
           <div className="relative mx-auto lg:mx-0 flex-shrink-0 w-[300px] h-[300px] md:w-[320px] md:h-[320px] lg:w-[350px] lg:h-[350px]">
             <Image
               src="/images/account.jpg"
-              alt="Guillaume Deschamps, uSERP'te Dijital PR Yöneticisi"
+              alt="account"
               width={500}
               height={500}
               className="w-full h-full object-cover rounded-xl"

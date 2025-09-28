@@ -1,5 +1,6 @@
+"use client";
 import Link from 'next/link';
-import { Menu, Target } from 'lucide-react';
+import { Menu, Globe } from 'lucide-react';
 import Image from 'next/image';
 import GradientText from '../ui/GradientText';
 import ShinyText from '../ui/ShinyText';
@@ -8,7 +9,7 @@ const navItems = [
   { label: 'Fiyatlandırma', href: '#pricing', rel: "noopener noreferrer" },
   { label: 'Ürün', href: 'https://opencontainer.co/tr', target: "_blank", rel: "noopener noreferrer" },
   { label: 'Blog', href: 'https://opencontainer.co/tr/blog-grid', target: "_blank", rel: "noopener noreferrer" },
-  { label: 'S.S.S', href: 'https://opencontainer.co/FAQs', target: "_blank", rel: "noopener noreferrer" },
+  { label: 'S.S.S', href: 'https://opencontainer.co/tr/FAQs', target: "_blank", rel: "noopener noreferrer" },
 ];
 
 export default function Navigation() {
@@ -46,7 +47,22 @@ export default function Navigation() {
             ))}
           </ul>
         </nav>
-        <div className="hidden items-center space-x-4 lg:flex cursor-pointer">
+        <div className="hidden items-center space-x-6 lg:flex">
+          {/* Language Switcher */}
+          <div className="flex items-center gap-2 text-sm text-neutral-700">
+            <Globe className="h-4 w-4" />
+            <select
+              aria-label="Dil Seçimi"
+              className="bg-transparent outline-none cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-neutral-300 rounded-md"
+              defaultValue="tr"
+              onChange={(e) => {
+                console.log('Language change selected:', e.target.value);
+              }}
+            >
+              <option value="tr">Türkçe</option>
+              <option value="en">English</option>
+            </select>
+          </div>
           <a
             href="https://opencontainer.co/tr/planner"
             target='_blank'

@@ -46,35 +46,35 @@ const Step4Icon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const stepsData = [
   {
-    title: <>MVP<br />Sürecimiz</>,
+    title: <>MVP Hazır: <br />Basit, Hızlı, Güvenilir</>,
     description:
-      "Fikri hızla doğruladık, ilk kullanıcılarımızla MVP’yi yayına aldık ve en kritik iş akışlarını sadeleştirdik.",
+      "Kilit modüller canlı: teklif karşılaştırma, sözleşme, ödeme ve takip. Bugün kullanan şirketler maliyet ve zaman kazancını ölçmeye başladı.",
     image: "/images/web-page.png",
     ctas: [
-      { label: "Süreci İncele", href: "https://opencontainer.co/tr", variant: "default" },
-      { label: "Demoyu Gör", href: "https://panel.opencontainer.co/tr", variant: "outline" },
+      { label: "Hemen Deneyin", href: "https://opencontainer.co/tr", variant: "default" },
+      { label: "Süreci İncele", href: "https://panel.opencontainer.co/tr", variant: "outline" },
     ],
     icon: Step1Icon,
   },
   {
-    title: <>Kiralama<br />İşlemlerimiz</>,
+    title: <>Tek ekranda 5 dakikada <br />konteyner kiralama</>,
     description:
-      "Konteyner kiralamayı kolaylaştırdık: uygunluk, fiyat ve sözleşme adımlarını tek akışta tamamlayın.",
+      "İzmir - Mersin 40HC tek yön ya da standart (belirlenen depoya iade) kiralama mı lazım? Rota ve tarihleri gir; birden fazla tedarikçiden teklif gelsin. Fiyat, süre ve koşulları yan yana gör, en iyi seçeneği dakikalar içinde seç.",
     image: "/images/panel.png",
     ctas: [
-      { label: "Kiralama Başlat", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
-      { label: "Fiyatları Gör", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
+      { label: "Hemen Kirala", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
+      { label: "Planları Gör", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
     ],
     icon: Step2Icon,
   },
   {
-    title: <>Navlun<br />İşlemleri</>,
+    title: <>Teklifleri inceleyin<br />veya talep oluşturun</>,
     description:
-      "Navlun tekliflerini karşılaştırın, en uygun rotayı seçin ve sevkiyatı uçtan uca takip edin.",
+      "Mevcut navlun tekliflerini rota ve koşullara göre karşılaştırın ya da talebinizi girin; doğrulanmış firmalar size dakikalar içinde teklif sunsun. Sevkiyatı uçtan uca panelden takip edin.",
     image: "/images/129003.jpg",
     ctas: [
-      { label: "Navlun Teklifi Al", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
-      { label: "Rotaları İncele", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
+      { label: "Navlun Talebi Oluştur", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
+      { label: "Rotaları / Teklifleri İncele", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
     ],
     icon: Step3Icon,
   },
@@ -127,7 +127,7 @@ const HowItWorksSection = () => {
         <div className="text-center mb-12 lg:mb-24">
           <h2 className="text-[48px] font-bold text-brand-dark-navy leading-tight">
             <BlurText
-              text="OpenContainer Yolculuğu"
+              text="Fikirden Gerçeğe: OpenContainer’ın Dönüşümü"
               className="inline-block"
               delay={0.5}
               duration={0.6}
@@ -136,8 +136,8 @@ const HowItWorksSection = () => {
               blur={8}
             />
           </h2>
-          <p className="text-lg text-brand-medium-gray mt-4 max-w-xl mx-auto">
-            4 adımda nasıl değer ürettiğimizi görün: MVP’den kiralama ve navlun işlemlerine, üzerine sürekli gelişen bir platform.
+          <p className="text-md text-brand-medium-gray mt-4 max-w-xxl px-3 mx-auto">
+            Telefon ve e-posta trafiğini ortadan kaldıran basit bir pazar yeri olarak başladık. Şimdi kiralama, navlun, depo ve ödeme modülleriyle lojistiği uçtan uca dijital yönetilebilir hale getiriyoruz.
           </p>
         </div>
 
@@ -199,23 +199,23 @@ const HowItWorksSection = () => {
                       <span className="inline-block">
                         {index === 0 && (
                           <>
-                            <BlurText text="MVP" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="MVP Hazır:" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                             <br />
-                            <BlurText text="Sürecimiz" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="Basit, Hızlı, Güvenilir" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                           </>
                         )}
                         {index === 1 && (
                           <>
-                            <BlurText text="Kiralama" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="Tek ekranda 5 dakikada" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                             <br />
-                            <BlurText text="İşlemlerimiz" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="konteyner kiralama" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                           </>
                         )}
                         {index === 2 && (
                           <>
-                            <BlurText text="Navlun" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="Teklifleri inceleyin" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                             <br />
-                            <BlurText text="İşlemleri" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                            <BlurText text="veya talep oluşturun" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                           </>
                         )}
                         {index === 3 && (

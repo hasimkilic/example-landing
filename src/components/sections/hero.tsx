@@ -98,17 +98,17 @@ const HeroSection = () => {
                     "Hızlı Teklif, Güvenli Alım",
                     "Kiralama ve Satış Tek Platformda",
                   ]}
-                  typingSpeed={55}
-                  deletingSpeed={28}
-                  pauseAfterTyped={1200}
-                  pauseBeforeNext={200}
+                  typingSpeed={100}
+                  deletingSpeed={50}
+                  pauseAfterTyped={800}
+                  pauseBeforeNext={100}
                   caret
                   caretClassName="bg-brand-dark-navy"
                 />
               </span>
             </span>
             <br />
-            <BlurText
+            {/* <BlurText
               text="Dijitalleşin"
               className="inline-block"
               delay={0.5}
@@ -116,7 +116,7 @@ const HeroSection = () => {
               stagger={0.04}
               translateY={12}
               blur={8}
-            />
+            /> */}
           </h1>
 
           <p className="mt-4 lg:mt-6 text-xl text-brand-medium-gray max-w-[850px] mx-auto leading-relaxed">
@@ -126,11 +126,11 @@ const HeroSection = () => {
           <div className="mt-10 lg:mt-12 flex flex-col items-center space-y-4">
             <a
               href="https://opencontainer.co/tr"
-              title="Hemen Başlayın"
+              title="1 Ay Ücretsiz Deneyin"
               target='_blank'
               className="btn-sweep bg-[#259c84] text-white font-medium text-base rounded-[8px] px-6 py-3.5 flex items-center gap-2.5 transition-all shadow-[0_4px_14px_0_rgba(37,156,132,0.25)] hover:shadow-[0_6px_20px_0_rgba(37,156,132,0.3)] transform hover:scale-[1.02] cursor-pointer">
               <ShinyText
-                text="Hemen Başlayın"
+                text="1 Ay Ücretsiz Deneyin"
                 disabled={false}
                 speed={3}
                 className='custom-class text-white font-medium text-base'

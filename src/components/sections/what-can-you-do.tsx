@@ -85,7 +85,7 @@ const useCases = [
     title: "İlk adımda ürün yükleyip satabilirsin",
     description:
       "Mağazana ürünlerini birkaç tıklamayla ekle, ilanını yayımla ve satışa başla.",
-    imageUrl: "/images/panel-urunler.png",
+    imageUrl: "/images/panel-urun-ekle.png",
     imageWidth: 1200,
     imageHeight: 800,
     imageAlt: "Ürün yükleme ve satış işlemleri",
@@ -95,9 +95,9 @@ const useCases = [
     badgeText: "Navlun",
     badgeBgClass: "bg-[#CBEDE6]",
     cardBgClass: "bg-[#E6FAF6]",
-    title: "Navlun işlemleri yapabilirsin",
+    title: "Navlun: teklifleri inceleyin veya talep oluşturun",
     description:
-      "Teklif al, rezervasyon oluştur, evrakları yönet — hepsi tek ekrandan.",
+      "Rota ve tarihlerinizi girin; doğrulanmış firmalardan dakikalar içinde çoklu teklif alın. Mevcut navlun tekliflerini kıyaslayın, en iyi koşulda anlaşın, sevkiyatı uçtan uca takip edin.",
     imageUrl: "/images/panel-offer.png",
     imageWidth: 1200,
     imageHeight: 800,
