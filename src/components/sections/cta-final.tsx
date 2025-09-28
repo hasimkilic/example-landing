@@ -5,14 +5,12 @@ import { Check, ArrowRight, Store, ShieldCheck } from 'lucide-react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { LazyMotion, domAnimation, m, useInView, useReducedMotion } from 'framer-motion';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 
 const CtaFinal = () => {
-  const benefits = [
-    'Anında Rezervasyon — Tek tıkla rezerve et',
-    'En Uygun Fiyat — Teklifleri karşılaştır',
-    'Güvenli Ödeme — İyzico ve PayTr güvencesi',
-    'Doğrudan Satıcıya Ulaş — Üretici/iş ortağıyla bağlantı',
-  ];
+  const { t } = useI18n();
+  const benefitsRaw = t('cta-final.benefits');
+  const benefits = Array.isArray(benefitsRaw) ? benefitsRaw : [benefitsRaw];
 
   const prefersReducedMotion = useReducedMotion();
   const sectionRef = React.useRef<HTMLDivElement | null>(null);
@@ -85,9 +83,9 @@ const CtaFinal = () => {
                   />
                 </m.svg>
               <h2 id="cta-final-title" className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-                Türkiye’nin En Büyük
+                {t('cta-final.title-line-1')}
                 <br />
-                Konteyner Pazarı
+                {t('cta-final.title-line-2')}
               </h2>
                 {/* Smaller bottom-left circle */}
                 <m.svg
@@ -123,7 +121,7 @@ const CtaFinal = () => {
                   />
                 </m.svg>
               <p className="mt-4 text-white/95 text-lg max-w-xl">
-                Konteyner bulun, teklifleri karşılaştırın ve güvenle ödeme yapın. En uygun fiyat garantisi.
+                {t('cta-final.description')}
               </p>
               <ul className="mt-8 mb-10 space-y-4">
                 {benefits.map((benefit, index) => (
@@ -139,9 +137,9 @@ const CtaFinal = () => {
                   className="cursor-pointer whitespace-nowrap inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 text-base font-semibold text-[#259c84] shadow-lg shadow-black/10 transition-transform duration-200 ease-in-out hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white/60"
                   data-event="cta_click"
                   data-cta="buyer_primary"
-                  aria-label="Konteynerleri Keşfet"
+                  aria-label={t('cta-final.cta-buyer')}
                 >
-                  Konteynerleri Keşfet
+                  {t('cta-final.cta-buyer')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
@@ -149,15 +147,15 @@ const CtaFinal = () => {
                   className="cursor-pointer whitespace-nowrap inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 bg-transparent px-8 py-4 text-base font-semibold text-white/95 hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/60"
                   data-event="cta_click"
                   data-cta="seller_secondary"
-                  aria-label="Hemen Satıcı Ol"
+                  aria-label={t('cta-final.cta-seller')}
                 >
                   <Store className="h-4 w-4" />
-                  Hemen Satıcı Ol
+                  {t('cta-final.cta-seller')}
                 </Link>
               </div>
               <div className="mt-4 flex flex-col sm:flex-row items-center gap-4">
                 <div className="flex items-center gap-2 text-white/90 text-sm">
-                  <ShieldCheck className="h-4 w-4" /> 100% güvenli ödeme — İyzico ve PayTr ile korunur.
+                  <ShieldCheck className="h-4 w-4" /> {t('cta-final.secure')}
                 </div>
               </div>
               </m.div>
@@ -171,7 +169,7 @@ const CtaFinal = () => {
               >
                 <Image
                   src="/images/liman.jpg"
-                  alt="Konteyner pazaryeri — konteynerlerle dolu liman görüntüsü"
+                  alt={t('cta-final.image-alt')}
                   width={640}
                   height={480}
                   className="w-full max-w-[640px] h-auto mx-auto rounded-t-2xl lg:rounded-t-none lg:rounded-l-2xl"

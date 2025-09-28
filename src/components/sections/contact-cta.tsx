@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import apiClient from "@/lib/axios-client";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 const ContactCta = () => {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState<null | { type: "success" | "error"; message: string }>(null);
+    const { t } = useI18n();
 
     useEffect(() => {
         if (!status) return;
@@ -29,11 +31,11 @@ const ContactCta = () => {
         setStatus(null);
         try {
             const res = await apiClient.post("/web/contact", payload);
-            const apiMsg = res?.data?.status?.message || "Form başarıyla gönderildi.";
+            const apiMsg = res?.data?.status?.message || t('contact.form.success');
             setStatus({ type: "success", message: apiMsg });
             form.reset();
         } catch (err: any) {
-            const msg = err?.response?.data?.status?.message || err?.response?.data?.message || "Form gönderilemedi. Lütfen tekrar deneyin.";
+            const msg = err?.response?.data?.status?.message || err?.response?.data?.message || t('contact.form.error');
             setStatus({ type: "error", message: msg });
         } finally {
             setLoading(false);
@@ -47,16 +49,15 @@ const ContactCta = () => {
                         {/* Left content */}
                         <div className="py-12 px-6 sm:p-12 md:p-16 flex flex-col justify-center text-center lg:text-left">
                             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-                                Bizimle İletişime Geçin
+                                {t('contact.form.heading')}
                             </h2>
                             <p className="mt-4 text-white/90 text-base max-w-prose mx-auto lg:mx-0">
-                                Sorularınız, geri bildirimleriniz veya teklif talepleriniz için formu doldurun.
-                                Ekibimiz en kısa sürede size dönüş yapacaktır. Ya da aşağıdaki iletişim bilgilerini kullanarak bize ulaşabilirsiniz.
+                                {t('contact.form.intro')}
                             </p>
                             <p className="mt-4 text-white/90 text-base max-w-prose mx-auto lg:mx-0 flex flex-col">
-                                Telefon Numarası: <a href="tel:+90 (850) 346 07 25" className="text-white underline">+90 850 346 07 25</a>
+                                {t('contact.form.contact-info.phone-label')}: <a href={`tel:${t('contact.form.contact-info.phone')}`} className="text-white underline">{t('contact.form.contact-info.phone')}</a>
                                 <br />
-                                E Posta: <a href="mailto:info@opencontainer.co" className="text-white underline">info@opencontainer.co</a>
+                                {t('contact.form.contact-info.email-label')}: <a href={`mailto:${t('contact.form.contact-info.email')}`} className="text-white underline">{t('contact.form.contact-info.email')}</a>
                             </p>
                         </div>
 
@@ -66,13 +67,13 @@ const ContactCta = () => {
                                 {/* İsim Soyisim */}
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="full_name" className="text-sm font-medium text-white/90">
-                                        İsim Soyisim
+                                        {t('contact.form.fields.full_name.label')}
                                     </label>
                                     <input
                                         id="full_name"
                                         name="full_name"
                                         type="text"
-                                        placeholder="Adınız Soyadınız"
+                                        placeholder={t('contact.form.fields.full_name.placeholder')}
                                         className="h-12 rounded-xl px-4 text-base text-[#0a0a0a] placeholder:text-black/40 outline-none bg-white/90 focus:bg-white transition-colors"
                                         required
                                     />
@@ -82,26 +83,26 @@ const ContactCta = () => {
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
                                     <div className="flex flex-col gap-2">
                                         <label htmlFor="phone" className="text-sm font-medium text-white/90">
-                                            Telefon Numarası
+                                            {t('contact.form.fields.phone.label')}
                                         </label>
                                         <input
                                             id="phone"
                                             name="phone"
                                             type="tel"
                                             inputMode="tel"
-                                            placeholder="05xx xxx xx xx"
+                                            placeholder={t('contact.form.fields.phone.placeholder')}
                                             className="h-12 rounded-xl px-4 text-base text-[#0a0a0a] placeholder:text-black/40 outline-none bg-white/90 focus:bg-white transition-colors"
                                         />
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <label htmlFor="email" className="text-sm font-medium text-white/90">
-                                            E-posta
+                                            {t('contact.form.fields.email.label')}
                                         </label>
                                         <input
                                             id="email"
                                             name="email"
                                             type="email"
-                                            placeholder="ornek@eposta.com"
+                                            placeholder={t('contact.form.fields.email.placeholder')}
                                             className="h-12 rounded-xl px-4 text-base text-[#0a0a0a] placeholder:text-black/40 outline-none bg-white/90 focus:bg-white transition-colors"
                                             required
                                         />
@@ -110,13 +111,13 @@ const ContactCta = () => {
 
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="subject" className="text-sm font-medium text-white/90">
-                                        Konu Başlığı
+                                        {t('contact.form.fields.subject.label')}
                                     </label>
                                     <input
                                         id="subject"
                                         name="subject"
                                         type="text"
-                                        placeholder="Konu"
+                                        placeholder={t('contact.form.fields.subject.placeholder')}
                                         className="h-12 rounded-xl px-4 text-base text-[#0a0a0a] placeholder:text-black/40 outline-none bg-white/90 focus:bg-white transition-colors"
                                         required
                                     />
@@ -124,12 +125,12 @@ const ContactCta = () => {
 
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="message" className="text-sm font-medium text-white/90">
-                                        Mesaj İçeriği
+                                        {t('contact.form.fields.message.label')}
                                     </label>
                                     <textarea
                                         id="message"
                                         name="message"
-                                        placeholder="Mesajınızı yazın... (En az 10 karakter)"
+                                        placeholder={t('contact.form.fields.message.placeholder')}
                                         rows={5}
                                         className="rounded-xl px-4 py-3 text-base text-[#0a0a0a] placeholder:text-black/40 outline-none bg-white/90 focus:bg-white transition-colors resize-y min-h-32"
                                         required
@@ -154,7 +155,7 @@ const ContactCta = () => {
                                     disabled={loading}
                                     className={`mt-2 rounded-[8px] px-6 py-3.5 inline-flex items-center justify-center gap-2.5 border shadow-[0_4px_14px_0_rgba(37,156,132,0.12)] focus:outline-none ${loading ? "opacity-60 cursor-not-allowed" : "cursor-pointer hover:ring-1 hover:ring-offset-1 hover:ring-white"}`}
                                 >
-                                    <span className="font-medium text-base">{loading ? "Gönderiliyor..." : "Gönder"}</span>
+                                    <span className="font-medium text-base">{loading ? t('contact.form.submitting') : t('contact.form.submit')}</span>
                                 </motion.button>
                             </form>
                         </div>

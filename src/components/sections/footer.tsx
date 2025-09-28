@@ -1,7 +1,10 @@
+"use client";
 import React from 'react';
 import { Facebook, Instagram, Phone, Mail, Youtube, ArrowUpRight, Globe, DollarSign, X as XIcon } from 'lucide-react';
 import ShinyText from '../ui/ShinyText';
 import GradientText from '../ui/GradientText';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 
 const ContactItem = ({ icon: Icon, children }: { icon: React.ElementType; children: React.ReactNode }) => (
   <div className="flex items-center gap-3 text-sm text-neutral-600">
@@ -26,6 +29,11 @@ const LinkCol = ({ title, items }: { title: string; items: { label: string; href
 );
 
 const Footer = () => {
+  const { t } = useI18n();
+  const infoLinks = t('footer.columns.info.links');
+  const customerLinks = t('footer.columns.customer.links');
+  const infoLinksArray = Array.isArray(infoLinks) ? infoLinks : [];
+  const customerLinksArray = Array.isArray(customerLinks) ? customerLinks : [];
   return (
     <footer className="bg-white border-t">
       <div className="container py-14">
@@ -40,12 +48,12 @@ const Footer = () => {
             </div>
 
             <p className="mt-6 text-neutral-700 text-sm leading-6 max-w-md">
-              Adalet Mah. Manas Blv. Folkart Towers No: 39 D: 3408<br />
-              Bayraklı/İZMİR, 35530
+              {t('footer.address.line-1')}<br />
+              {t('footer.address.line-2')}
             </p>
 
             <a href="#contact" className="inline-flex items-center gap-1 mt-4 text-neutral-900 font-medium">
-              İletişim <ArrowUpRight className="h-4 w-4" />
+              {t('footer.contact-link')} <ArrowUpRight className="h-4 w-4" />
             </a>
 
             <div className="mt-4 space-y-3">
@@ -70,49 +78,35 @@ const Footer = () => {
           {/* Info columns */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-10">
             <LinkCol
-              title="Bilgi"
-              items={[
-                { label: 'Hakkımızda', href: '#' },
-                { label: 'Blog', href: '#' },
-                { label: 'Favorilerim', href: '#' },
-                { label: 'İletişim', href: '#' },
-                { label: 'Ofisimiz', href: '#' },
-                { label: 'Hesabım', href: '#' },
-              ]}
+              title={t('footer.columns.info.title')}
+              items={infoLinksArray.map((l: any) => ({ label: l.label, href: l.href }))}
             />
             <LinkCol
-              title="Müşteri Hizmetleri"
-              items={[
-                { label: 'KVKK Aydınlatma Metni', href: 'https://opencontainer.co/tr/personel-data' },
-                { label: 'Açık Rıza Metni', href: 'https://opencontainer.co/tr/service-aggrement' },
-                { label: 'Kullanıcı Sözleşmesi', href: 'https://opencontainer.co/tr/user-aggrement' },
-                { label: 'Mesafeli Satış Sözleşmesi', href: 'https://opencontainer.co/tr/distance-sales' },
-                { label: 'Gizlilik ve Çerez Politikası', href: 'https://opencontainer.co/tr/privacy-policy' },
-                { label: 'SSS', href: 'https://opencontainer.co/tr/FAQs' },
-              ]}
+              title={t('footer.columns.customer.title')}
+              items={customerLinksArray.map((l: any) => ({ label: l.label, href: l.href }))}
             />
           </div>
 
           {/* Newsletter + badge */}
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <div>
-              <h4 className="text-lg font-semibold text-neutral-900 mb-4">Haber Bülteni</h4>
+              <h4 className="text-lg font-semibold text-neutral-900 mb-4">{t('footer.newsletter')}</h4>
               <p className="text-sm text-neutral-600">
-                Haber Bülteni'ne kayıt olarak, ilk gelişmelerden haberdar olun.
+                {t('footer.newsletter_desc')}
               </p>
 
               <form className="mt-4">
                 <div className="flex flex-col sm:flex-row items-stretch gap-2 h-24">
                   <input
                     type="email"
-                    placeholder="E-posta Adresiniz"
+                    placeholder={t('footer.email-placeholder')}
                     className="flex-1 rounded-full border px-5 h-24 sm:h-12 text-base sm:text-sm outline-none focus:ring-2 focus:ring-neutral-900"
                   />
                   <button
                     type="submit"
                     className="h-12 sm:h-12 rounded-full bg-neutral-900 text-white px-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors"
                   >
-                    <span className="text-base sm:text-sm font-medium">Gönder</span>
+                    <span className="text-base sm:text-sm font-medium">{t('footer.send')}</span>
                     <ArrowUpRight className="h-5 w-5 sm:h-4 sm:w-4" />
                   </button>
                 </div>
@@ -120,7 +114,7 @@ const Footer = () => {
                 <label className="mt-4 flex items-start gap-2 text-[13px] text-neutral-600">
                   <input type="checkbox" className="mt-1 h-4 w-4 border" />
                   <span>
-                    Abone olarak, aşağıdaki şartları kabul edersiniz: <a target='_blank' href="https://opencontainer.co/tr/service-aggrement" className="underline font-medium">Açık Rıza Metni</a> ve <a target='_blank' href="https://opencontainer.co/tr/privacy-policy" className="underline font-medium">Gizlilik ve Çerez Politikası</a>.
+                    {t('footer.consent.prefix')} <a target='_blank' href="https://opencontainer.co/tr/service-aggrement" className="underline font-medium">{t('footer.consent.open-consent')}</a> {t('footer.consent.and')} <a target='_blank' href="https://opencontainer.co/tr/privacy-policy" className="underline font-medium">{t('footer.consent.privacy-policy')}</a>.
                   </span>
                 </label>
               </form>
@@ -141,7 +135,7 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t">
         <div className="container py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-neutral-600">©2025 Orizora. Tüm Hakları Saklıdır.</p>
+          <p className="text-sm text-neutral-600">{t('footer.rights')}</p>
 
           <div className="flex items-center gap-4">
             {/* <div className="flex items-center gap-2 text-sm text-neutral-700">
@@ -152,13 +146,7 @@ const Footer = () => {
                 <option>TRY</option>
               </select>
             </div> */}
-            <div className="flex items-center gap-2 text-sm text-neutral-700">
-              <Globe className="h-4 w-4" />
-              <select className="bg-transparent outline-none">
-                <option>Türkçe</option>
-                <option>English</option>
-              </select>
-            </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

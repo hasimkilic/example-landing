@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 const Step1Icon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -44,51 +45,12 @@ const Step4Icon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+// Static assets & icon mapping for steps; textual content now comes from i18n
 const stepsData = [
-  {
-    title: <>MVP Hazır: <br />Basit, Hızlı, Güvenilir</>,
-    description:
-      "Kilit modüller canlı: teklif karşılaştırma, sözleşme, ödeme ve takip. Bugün kullanan şirketler maliyet ve zaman kazancını ölçmeye başladı.",
-    image: "/images/web-page.png",
-    ctas: [
-      { label: "Hemen Deneyin", href: "https://opencontainer.co/tr", variant: "default" },
-      { label: "Süreci İncele", href: "https://panel.opencontainer.co/tr", variant: "outline" },
-    ],
-    icon: Step1Icon,
-  },
-  {
-    title: <>Tek ekranda 5 dakikada <br />konteyner kiralama</>,
-    description:
-      "İzmir - Mersin 40HC tek yön ya da standart (belirlenen depoya iade) kiralama mı lazım? Rota ve tarihleri gir; birden fazla tedarikçiden teklif gelsin. Fiyat, süre ve koşulları yan yana gör, en iyi seçeneği dakikalar içinde seç.",
-    image: "/images/panel.png",
-    ctas: [
-      { label: "Hemen Kirala", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
-      { label: "Planları Gör", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
-    ],
-    icon: Step2Icon,
-  },
-  {
-    title: <>Teklifleri inceleyin<br />veya talep oluşturun</>,
-    description:
-      "Mevcut navlun tekliflerini rota ve koşullara göre karşılaştırın ya da talebinizi girin; doğrulanmış firmalar size dakikalar içinde teklif sunsun. Sevkiyatı uçtan uca panelden takip edin.",
-    image: "/images/129003.jpg",
-    ctas: [
-      { label: "Navlun Talebi Oluştur", href: "https://opencontainer.co/tr/shop-product", variant: "default" },
-      { label: "Rotaları / Teklifleri İncele", href: "https://opencontainer.co/tr/shop-product", variant: "outline" },
-    ],
-    icon: Step3Icon,
-  },
-  {
-    title: <>Gelişmeye<br />Devam Ediyoruz</>,
-    description:
-      "Sürekli yeni özellikler, entegrasyonlar ve pazar yerleri ekliyoruz — yolculuğa katılın.",
-    image: "/images/panel-offer.png",
-    ctas: [
-      { label: "Bize Katılın — Ücretsiz Başla", href: "https://opencontainer.co/tr/register", variant: "default" },
-      { label: "Yol Haritamız", href: "https://opencontainer.co/tr/about-us", variant: "outline" },
-    ],
-    icon: Step4Icon,
-  },
+  { image: "/images/web-page.png", icon: Step1Icon, hrefs: { primary: "https://opencontainer.co/tr", secondary: "https://panel.opencontainer.co/tr" } },
+  { image: "/images/panel.png", icon: Step2Icon, hrefs: { primary: "https://opencontainer.co/tr/shop-product", secondary: "https://opencontainer.co/tr/shop-product" } },
+  { image: "/images/129003.jpg", icon: Step3Icon, hrefs: { primary: "https://opencontainer.co/tr/shop-product", secondary: "https://opencontainer.co/tr/shop-product" } },
+  { image: "/images/panel-offer.png", icon: Step4Icon, hrefs: { primary: "https://opencontainer.co/tr/register", secondary: "https://opencontainer.co/tr/about-us" } },
 ] as const;
 
 const HowItWorksSection = () => {
@@ -121,13 +83,15 @@ const HowItWorksSection = () => {
     };
   }, []);
 
+  const { t } = useI18n();
+
   return (
     <section className="py-20 lg:py-24">
       <div className="container max-w-[1200px] mx-auto px-10">
         <div className="text-center mb-12 lg:mb-24">
-          <h2 className="text-[48px] font-bold text-brand-dark-navy leading-tight">
+          <h2 className="text-[46px] font-bold text-brand-dark-navy leading-tight">
             <BlurText
-              text="Fikirden Gerçeğe: OpenContainer’ın Dönüşümü"
+              text={t("how-it-works.heading")}
               className="inline-block"
               delay={0.5}
               duration={0.6}
@@ -137,7 +101,7 @@ const HowItWorksSection = () => {
             />
           </h2>
           <p className="text-md text-brand-medium-gray mt-4 max-w-xxl px-3 mx-auto">
-            Telefon ve e-posta trafiğini ortadan kaldıran basit bir pazar yeri olarak başladık. Şimdi kiralama, navlun, depo ve ödeme modülleriyle lojistiği uçtan uca dijital yönetilebilir hale getiriyoruz.
+            {t("how-it-works.description")}
           </p>
         </div>
 
@@ -145,7 +109,8 @@ const HowItWorksSection = () => {
           <div className="lg:w-1/2 ">
             <div className="lg:sticky lg:top-[calc(50vh-300px)] h-[320px] sm:h-[480px] lg:h-[600px] w-full rounded-2xl overflow-hidden mb-12 lg:mb-0 relative">
               {stepsData.map((step, index) => (
-                step.hasOwnProperty("video") && (step as any).video ? (
+                // Potential future video support remains intact
+                (step as any).video ? (
                   <video
                     key={`v-${index}`}
                     className={cn(
@@ -164,8 +129,8 @@ const HowItWorksSection = () => {
                 ) : (
                   <img
                     key={`i-${index}`}
-                    alt={typeof step.title === "string" ? (step.title as string) : "Görsel"}
-                    src={(step as any).image || "/vercel.svg"}
+                    alt={`${t(`how-it-works.steps.${index}.title-1`)} ${t(`how-it-works.steps.${index}.title-2`)}`}
+                    src={step.image || "/vercel.svg"}
                     className={cn(
                       "absolute inset-0 w-full h-96 rounded-lg object-contain transition-opacity duration-300",
                       activeStep === index ? "opacity-100 z-10" : "opacity-0"
@@ -189,71 +154,37 @@ const HowItWorksSection = () => {
                 </div>
                 <div className={cn('transition-opacity duration-300', activeStep >= index ? 'opacity-100' : 'opacity-40')}>
                   <h3 className="text-[32px] font-bold text-brand-dark-navy leading-tight">
-                    {typeof step.title === "string" ? (
-                      activeStep === index ? (
-                        <BlurText text={step.title} delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                      ) : (
-                        <span>{step.title}</span>
-                      )
-                    ) : activeStep === index ? (
+                    {activeStep === index ? (
                       <span className="inline-block">
-                        {index === 0 && (
-                          <>
-                            <BlurText text="MVP Hazır:" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                            <br />
-                            <BlurText text="Basit, Hızlı, Güvenilir" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                          </>
-                        )}
-                        {index === 1 && (
-                          <>
-                            <BlurText text="Tek ekranda 5 dakikada" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                            <br />
-                            <BlurText text="konteyner kiralama" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                          </>
-                        )}
-                        {index === 2 && (
-                          <>
-                            <BlurText text="Teklifleri inceleyin" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                            <br />
-                            <BlurText text="veya talep oluşturun" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                          </>
-                        )}
-                        {index === 3 && (
-                          <>
-                            <BlurText text="Gelişmeye" delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                            <br />
-                            <BlurText text="Devam Ediyoruz" delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
-                          </>
-                        )}
+                        <BlurText text={t(`how-it-works.steps.${index}.title-1`)} delay={0.1} duration={0.5} stagger={0.03} translateY={8} blur={6} />
+                        <br />
+                        <BlurText text={t(`how-it-works.steps.${index}.title-2`)} delay={0.25} duration={0.5} stagger={0.03} translateY={8} blur={6} />
                       </span>
                     ) : (
-                      <span className="inline-block">{step.title}</span>
+                      <span className="inline-block">
+                        {t(`how-it-works.steps.${index}.title-1`)}<br />{t(`how-it-works.steps.${index}.title-2`)}
+                      </span>
                     )}
                   </h3>
                   <p className="mt-3 text-lg text-brand-medium-gray">
-                    {step.description}
+                    {t(`how-it-works.steps.${index}.desc`)}
                   </p>
-                  {"ctas" in step && Array.isArray((step as any).ctas) && (
-                    <div className="mt-5 flex flex-wrap gap-3">
-                      {(step as any).ctas.map((cta: any, i: number) => (
-                        <Button
-                          key={i}
-                          asChild
-                          // className="cursor-pointer"
-                          variant={
-                            cta.variant === "default"
-                              ? ("brand" as any)
-                              : cta.variant === "outline"
-                              ? ("brandOutline" as any)
-                              : (cta.variant as any)
-                          }
-                          size="lg"
-                        >
-                          <a href={cta.href} target="_blank" rel="noopener noreferrer">{cta.label}</a>
-                        </Button>
-                      ))}
-                    </div>
-                  )}
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    <Button
+                      asChild
+                      variant={"brand" as any}
+                      size="lg"
+                    >
+                      <a href={step.hrefs.primary} target="_blank" rel="noopener noreferrer">{t(`how-it-works.steps.${index}.cta-primary`)}</a>
+                    </Button>
+                    <Button
+                      asChild
+                      variant={"brandOutline" as any}
+                      size="lg"
+                    >
+                      <a href={step.hrefs.secondary} target="_blank" rel="noopener noreferrer">{t(`how-it-works.steps.${index}.cta-secondary`)}</a>
+                    </Button>
+                  </div>
                 </div>
               </li>
             ))}

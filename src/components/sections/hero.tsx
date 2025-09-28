@@ -7,8 +7,10 @@ import { motion } from 'framer-motion';
 import TextType from "@/components/ui/text-type";
 import BlurText from "@/components/ui/blur-text";
 import ShinyText from '../ui/ShinyText';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 
 const HeroSection = () => {
+  const { t } = useI18n();
   const [imgLoaded, setImgLoaded] = React.useState(false);
 
   const floatingBalls = [
@@ -87,16 +89,16 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-10 pt-20 pb-16 lg:pt-[126px] lg:pb-24 relative z-10">
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-[52px] md:text-[80px] lg:text-[96px] font-bold text-brand-dark-navy leading-none -tracking-[0.03em]">
-            <span className="relative inline-block mb-2 md:mb-3">
+      <h1 className="hero-heading relative flex flex-col justify-center text-[48px] md:text-[80px] lg:text-[96px] font-bold text-brand-dark-navy leading-none -tracking-[0.03em] h-[132px] md:h-[165px] lg:h-[198px] break-words">
+            <span className="relative inline-block">
               <span className="absolute -inset-x-2 -inset-y-0 sm:-inset-y-1 bg-[#CBEDE6] rounded-lg z-0" />
               <span className="relative z-10 inline-flex items-end">
                 <TextType
                   words={[
-                    "Konteynerini Bul, Navlununu Yönet, Rotanı Dijitale Çevir",
-                    "Yeni ve İkinci El Konteynerler",
-                    "Hızlı Teklif, Güvenli Alım",
-                    "Kiralama ve Satış Tek Platformda",
+                    t("hero.title-1"),
+                    t("hero.title-2"),
+                    t("hero.title-3"),
+                    t("hero.title-4"),
                   ]}
                   typingSpeed={100}
                   deletingSpeed={50}
@@ -107,30 +109,20 @@ const HeroSection = () => {
                 />
               </span>
             </span>
-            <br />
-            {/* <BlurText
-              text="Dijitalleşin"
-              className="inline-block"
-              delay={0.5}
-              duration={0.6}
-              stagger={0.04}
-              translateY={12}
-              blur={8}
-            /> */}
           </h1>
 
           <p className="mt-4 lg:mt-6 text-xl text-brand-medium-gray max-w-[850px] mx-auto leading-relaxed">
-            OpenContainer, konteyner ticareti, kiralama ve navlun yönetimini tek ekranda buluşturan dijital pazar yeridir. İş ortaklarınıza ulaşın, teklifleri karşılaştırın ve lojistik süreçlerinizi kolayca yönetin.
+            {t("hero.description")}
           </p>
 
           <div className="mt-10 lg:mt-12 flex flex-col items-center space-y-4">
             <a
               href="https://opencontainer.co/tr"
-              title="1 Ay Ücretsiz Deneyin"
+              title={t("hero.one-month-free")}
               target='_blank'
               className="btn-sweep bg-[#259c84] text-white font-medium text-base rounded-[8px] px-6 py-3.5 flex items-center gap-2.5 transition-all shadow-[0_4px_14px_0_rgba(37,156,132,0.25)] hover:shadow-[0_6px_20px_0_rgba(37,156,132,0.3)] transform hover:scale-[1.02] cursor-pointer">
               <ShinyText
-                text="1 Ay Ücretsiz Deneyin"
+                text="hero.one-month-free"
                 disabled={false}
                 speed={3}
                 className='custom-class text-white font-medium text-base'
@@ -138,7 +130,7 @@ const HeroSection = () => {
               <ArrowRight className="w-4 h-4" />
             </a>
             <p className="text-xs text-brand-medium-gray font-medium tracking-wide">
-              Konteynerleri Keşfet / Hemen Teklif Al
+              {t("hero.btn-desc")}
             </p>
           </div>
 

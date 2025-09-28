@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Quote } from 'lucide-react';
 import { BlurText } from '../ui/blur-text';
+import { useI18n } from '@/lib/i18n/I18nProvider';
 import { LazyMotion, domAnimation, m, useInView, useReducedMotion } from 'framer-motion';
 
 const TestimonialAnkit = () => {
@@ -35,6 +36,8 @@ const TestimonialAnkit = () => {
     show: { scale: 1, rotate: 0, opacity: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
   } as const;
 
+  const { t } = useI18n();
+
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-[1200px] mx-auto px-10">
@@ -60,13 +63,13 @@ const TestimonialAnkit = () => {
               >
               <Image
                 src="/images/limankusbakisi.jpg"
-                alt="Open Container"
+                alt={t('testimonial.ankit.image-alt')}
                 fill
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-[30px] right-0">
-                <p className="text-white text-2xl font-bold leading-7">Open Container</p>
+                <p className="text-white text-2xl font-bold leading-7">{t('testimonial.ankit.label')}</p>
               </div>
               </m.div>
 
@@ -80,7 +83,7 @@ const TestimonialAnkit = () => {
               </m.div>
               <blockquote className="text-[#1E2B47] text-[32px] font-medium leading-[48px] mb-8">
                 <BlurText
-                  text='"Konteynerini Bul, Navlununu Yönet, Rotanı Dijitale Çevir"'
+                  text={t('testimonial.ankit.quote')}
                   className="inline-block leading-12 text-left"
                   delay={0}
                   duration={0.25}
@@ -97,7 +100,7 @@ const TestimonialAnkit = () => {
                 rel="noopener noreferrer"
                 className="inline-block text-[#259c84] font-semibold py-[10px] px-5 border-2 border-[#CBEDE6] rounded-lg bg-transparent hover:bg-white/30 transition-colors"
               >
-                Dijitalleşmeye Başla
+                {t('testimonial.ankit.cta')}
               </a>
               </m.div>
             </div>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { BarChart3, Globe2, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 interface StatItemProps {
   icon: React.ReactNode;
@@ -40,6 +41,7 @@ function useCountUp(target: number, inView: boolean, duration = 1800) {
 const StatItem = ({ icon, value, suffix = "+", label, description, duration, format }: StatItemProps) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   const count = useCountUp(value, inView, duration);
+  const { t } = useI18n();
   const formatted = format ? format(count) : count.toLocaleString("tr-TR");
   return (
     <div ref={ref} className="flex flex-col gap-4 max-w-xs mx-auto">
@@ -54,8 +56,8 @@ const StatItem = ({ icon, value, suffix = "+", label, description, duration, for
           {formatted} {suffix}
         </motion.span>
       </div>
-      <p className="text-xl font-bold text-brand-dark-navy leading-snug ">{label}</p>
-      <p className="text-base text-brand-medium-gray">{description}</p>
+      <p className="text-xl font-bold text-brand-dark-navy leading-snug ">{t(label)}</p>
+      <p className="text-base text-brand-medium-gray">{t(description)}</p>
     </div>
   );
 };
@@ -65,20 +67,20 @@ export function StatsSection() {
     {
       icon: <BarChart3 className="size-9" />,
       value: 500,
-      label: "500'den fazla konteyner ilanı",
-      description: "Platformumuzda her gün artan geniş konteyner ilanı yelpazesi",
+      label: "stats.container",
+      description: "stats.container-desc",
     },
     {
       icon: <Globe2 className="size-9" />,
       value: 100,
-      label: "100 şirket bize güveniyor",
-      description: "Farklı sektörlerden yüzlerce şirket güvenle işlem yapıyor",
+      label: "stats.company",
+      description: "stats.company-desc",
     },
     {
       icon: <Star className="size-9" />,
       value: 10,
-      label: "10 sponsor",
-      description: "Büyümemize destek veren güçlü sponsor ağımız",
+      label: "stats.sponsor",
+      description: "stats.sponsor-desc",
     },
   ];
   return (

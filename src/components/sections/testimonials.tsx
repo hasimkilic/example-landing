@@ -4,6 +4,7 @@ import { BlurText } from "../ui/blur-text";
 import Image from "next/image";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import React from "react";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 type Testimonial = {
   name: string;
@@ -12,28 +13,11 @@ type Testimonial = {
   image: string;
 };
 
-const testimonials: Testimonial[] = [
-  {
-    name: "Ayşe TERZİ",
-    role: "CEO",
-    quote:
-      "OpenContainer sayesinde konteyner kiralama ve navlun süreçlerimizi tek ekrandan yönetiyoruz; maliyetlerimiz düştü, karar süremiz kısaldı.",
-    image: "/images/about-us.jpg",
-  },
-  {
-    name: "Ahmet YILMAZ",
-    role: "CTO",
-    quote:
-      "OpenContainer'ın güçlü güvenlik önlemleri ve sorunsuz entegrasyonları beni etkiledi. Kullanıcı dostu bir uygulamanın bu kadar gelişmiş teknolojiyle dengelendiğini görmek nadir.",
-    image: "/images/real-person.avif",
-  },
-  {
-    name: "Ali İhsan Yıldıran",
-    role: "Müşteri Hizmetleri",
-    quote:
-      "Kullanıcı dostu arayüz, teklif karşılaştırma ve takip fonksiyonları müşterilerimize anlık bilgi vermemizi sağlıyor; memnuniyet belirgin şekilde arttı.",
-    image: "/images/real-person-2.avif",
-  },
+// Non-translatable structural data; quotes fetched via i18n keys
+const testimonials: Array<Omit<Testimonial, 'quote'> & { key: number }> = [
+  { key: 0, name: "Ayşe TERZİ", role: "CEO", image: "/images/about-us.jpg" },
+  { key: 1, name: "Ahmet YILMAZ", role: "CTO", image: "/images/real-person.avif" },
+  { key: 2, name: "Ali İhsan Yıldıran", role: "Müşteri Hizmetleri", image: "/images/real-person-2.avif" },
 ];
 
 const itemVariants = {
@@ -46,6 +30,8 @@ const itemVariants = {
 } as const;
 
 const TestimonialsSection = () => {
+  const { t } = useI18n();
+
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-[1200px] mx-auto px-10">
@@ -53,7 +39,7 @@ const TestimonialsSection = () => {
           <h2 className="text-[44px] md:text-[56px] leading-[1.05] font-bold tracking-tight text-brand-dark-navy">
             <span className="inline-block">
               <BlurText
-                text="Müşterilerimizin Yorumları"
+                text={t('testimonial.section.heading')}
                 delay={0.1}
                 duration={0.5}
                 stagger={0.04}
@@ -66,7 +52,7 @@ const TestimonialsSection = () => {
             </span>
           </h2>
           <p className="mt-5 max-w-2xl mx-auto text-lg text-brand-medium-gray">
-            Müşterilerimizin OpenContainer hakkındaki deneyimlerini okuyun.
+            {t('testimonial.section.description')}
           </p>
         </div>
 
@@ -77,9 +63,9 @@ const TestimonialsSection = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
           >
-            {testimonials.map((t, i) => (
+            {testimonials.map((item, i) => (
               <m.li
-                key={t.name}
+                key={item.name}
                 className="flex flex-col"
                 custom={i}
                 variants={itemVariants}
@@ -87,20 +73,20 @@ const TestimonialsSection = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border border-[#CBEDE6]">
                     <Image
-                      src={t.image}
-                      alt={t.name}
+                      src={item.image}
+                      alt={item.name}
                       fill
                       className="object-cover"
                       sizes="64px"
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-lg text-[#1E2B47]">{t.name}</p>
-                    <p className="text-sm text-brand-medium-gray">{t.role}</p>
+                    <p className="font-semibold text-lg text-[#1E2B47]">{item.name}</p>
+                    <p className="text-sm text-brand-medium-gray">{t(`testimonial.section.roles.${item.key}`)}</p>
                   </div>
                 </div>
                 <p className="text-brand-dark-navy text-lg leading-8">
-                  "{t.quote}"
+                  "{t(`testimonial.list.${item.key}.quote`)}"
                 </p>
               </m.li>
             ))}

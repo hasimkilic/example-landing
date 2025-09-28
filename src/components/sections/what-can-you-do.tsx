@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion, useScroll, useMotionValueEvent, useAnimation } from "framer-motion";
 import React from "react";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 const useHasUserScrolled = () => {
   const { scrollY } = useScroll();
@@ -77,57 +78,42 @@ const FadeIn: React.FC<{
   );
 };
 
+// Structural use case data; textual fields resolved via i18n keys.
 const useCases = [
   {
-    badgeText: "Ürün Yönetimi",
+    key: 0,
     badgeBgClass: "bg-[#F7DEA7]",
     cardBgClass: "bg-[#FEFCF7]",
-    title: "İlk adımda ürün yükleyip satabilirsin",
-    description:
-      "Mağazana ürünlerini birkaç tıklamayla ekle, ilanını yayımla ve satışa başla.",
     imageUrl: "/images/panel-urun-ekle.png",
     imageWidth: 1200,
     imageHeight: 800,
-    imageAlt: "Ürün yükleme ve satış işlemleri",
     linkUrl: "https://opencontainer.co/tr/planner",
   },
   {
-    badgeText: "Navlun",
+    key: 1,
     badgeBgClass: "bg-[#CBEDE6]",
     cardBgClass: "bg-[#E6FAF6]",
-    title: "Navlun: teklifleri inceleyin veya talep oluşturun",
-    description:
-      "Rota ve tarihlerinizi girin; doğrulanmış firmalardan dakikalar içinde çoklu teklif alın. Mevcut navlun tekliflerini kıyaslayın, en iyi koşulda anlaşın, sevkiyatı uçtan uca takip edin.",
     imageUrl: "/images/panel-offer.png",
     imageWidth: 1200,
     imageHeight: 800,
-    imageAlt: "Navlun işlemleri ve liman görüntüsü",
     linkUrl: "https://opencontainer.co/tr",
   },
   {
-    badgeText: "Fiyat karşılaştırma",
+    key: 2,
     badgeBgClass: "bg-[#C9F5F2]",
     cardBgClass: "bg-[#F0FDFC]",
-    title: "Fiyat karşılaştırması yapabilirsin",
-    description:
-      "Farklı hat ve acentelerden anlık navlun tekliflerini karşılaştır, en uygun maliyeti yakala.",
     imageUrl: "/images/compare.png",
     imageWidth: 1200,
     imageHeight: 1000,
-    imageAlt: "Fiyat ve logo karşılaştırma görseli",
     linkUrl: "https://opencontainer.co/tr",
   },
   {
-    badgeText: "Tek platform",
+    key: 3,
     badgeBgClass: "bg-[#D1F4E0]",
     cardBgClass: "bg-[#F2FEF8]",
-    title: "Tüm konteyner işlerini tek yerden dijitalde kontrol edebilirsin",
-    description:
-      "Rezervasyon, takip, faturalama ve raporlama süreçlerini tek platformdan uçtan uca yönet.",
     imageUrl: "/images/panel.png",
     imageWidth: 1200,
     imageHeight: 1200,
-    imageAlt: "Konteyner operasyonlarının dijital yönetimi",
     linkUrl: "https://opencontainer.co/tr",
   },
 ];
@@ -166,13 +152,15 @@ const WhatCanYouDo = () => {
     [isDesktop]
   );
 
+  const { t } = useI18n();
+
   return (
     <section className="bg-white py-24">
       <div className="container">
         <h2 className="text-center text-brand-dark-navy text-5xl font-bold leading-tight">
-          <span className="bg-[#CBEDE6] px-2 py-1">Open Container ile</span>
+          <span className="bg-[#CBEDE6] px-2 py-1">{t('what-can-you-do.heading-line-1')}</span>
           <br />
-          neler yapabilirsin?
+          {t('what-can-you-do.heading-line-2')}
         </h2>
         <div className="mt-16 lg:mt-24">
           <motion.div
@@ -184,7 +172,7 @@ const WhatCanYouDo = () => {
           >
             {useCases.map((useCase, idx) => (
               <FadeIn
-                key={useCase.title}
+                key={useCase.key}
                 duration={650}
                 direction={idx % 2 === 0 ? "left" : "right"}
               >
@@ -196,30 +184,30 @@ const WhatCanYouDo = () => {
                       href={useCase.linkUrl}
                       className={`inline-block ${useCase.badgeBgClass} text-brand-dark-navy font-semibold tracking-wide rounded-md px-3 py-1 text-sm`}
                     >
-                      {useCase.badgeText}
+                      {t(`what-can-you-do.cases.${useCase.key}.badge`)}
                     </a>
                   </p>
                   <h3 className="text-[32px] font-bold text-brand-dark-navy leading-tight mt-4">
-                    {useCase.title}
+                    {t(`what-can-you-do.cases.${useCase.key}.title`)}
                   </h3>
                   <p className="text-brand-medium-gray text-lg mt-4">
-                    {useCase.description}
+                    {t(`what-can-you-do.cases.${useCase.key}.desc`)}
                   </p>
 
                   <div className="mt-auto pt-8">
                     <Image
                       src={useCase.imageUrl}
-                      alt={useCase.imageAlt}
+                      alt={t(`what-can-you-do.cases.${useCase.key}[image-alt]`) || t(`what-can-you-do.cases.${useCase.key}.image-alt`)}
                       width={useCase.imageWidth}
                       height={useCase.imageHeight}
                       className="w-full h-auto rounded-md text-center"
                     />
                     <a
                       href={useCase.linkUrl}
-                      title="Detayları gör"
+                      title={t('what-can-you-do.cta-more')}
                       className="inline-flex items-center justify-center bg-[#259c84] text-white text-base font-medium py-4 px-8 mt-8 rounded-lg shadow-[0_2px_4px_rgba(37,156,132,0.2)] transition-transform hover:scale-[1.02]"
                     >
-                      Detayları gör
+                      {t('what-can-you-do.cta-more')}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </div>

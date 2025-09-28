@@ -294,3 +294,11 @@
 nextjs-portal {
   display: none !important;
 }
+
+/* Extra small viewport fix (<340px): prevent hero heading from overlapping description */
+@media (max-width: 339px) {
+  .hero-heading {
+    font-size: 48px !important; /* shrink to fit two lines */
+    line-height: 1.05; /* tighten a bit for vertical fit */
+  }
+}

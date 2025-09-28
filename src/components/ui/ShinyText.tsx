@@ -1,3 +1,5 @@
+"use client";
+import { useI18n } from '@/lib/i18n/I18nProvider';
 import React from 'react';
 
 interface ShinyTextProps {
@@ -9,6 +11,7 @@ interface ShinyTextProps {
 
 const ShinyText: React.FC<ShinyTextProps> = ({ text, disabled = false, speed = 5, className = '' }) => {
   const animationDuration = `${speed}s`;
+  const {t} = useI18n();
 
   return (
     <div
@@ -21,7 +24,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({ text, disabled = false, speed = 5
         animationDuration: animationDuration
       }}
     >
-      {text}
+      {t(text)}
     </div>
   );
 };

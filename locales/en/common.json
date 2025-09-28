@@ -1,0 +1,261 @@
+{
+  "hero": {
+    "title-1": "Find Your Container, Manage Your Freight, Digitize Your Route",
+    "title-2": "New & Used Containers",
+    "title-3": "Fast Quote, Secure Purchase",
+    "title-4": "Rental and Sales on a Single Platform",
+    "cta": "Get Started",
+    "one-month-free": "Try 1 Month Free",
+    "btn-desc": "Discover Containers / Get Offer Now",
+    "description": "OpenContainer is a digital marketplace that brings container trading, leasing, and freight management together in one place. Reach out to your business partners, compare offers, and easily manage your logistics processes."
+  },
+  "stats": {
+    "container": "More than 500 container listings",
+    "company": "100 companies trust us",
+    "sponsor": "10 sponsors",
+    "container-desc": "Our platform offers a wide range of container listings, increasing daily.",
+    "company-desc": "Hundreds of companies from different sectors operate securely.",
+    "sponsor-desc": "Our strong sponsor network supports our growth."
+  },
+  "how-it-works":{
+    "heading": "From Idea to Reality: The Transformation of OpenContainer",
+    "description": "We started as a simple marketplace that eliminated phone and email traffic. Now we’re making logistics digitally manageable end-to-end with leasing, freight, warehousing and payment modules.",
+    "steps": {
+      "0": {
+        "title-1": "MVP Ready:",
+        "title-2": "Simple, Fast, Reliable",
+        "desc": "Core modules are live: quote comparison, contracts, payment and tracking. Companies using it today have started measuring time and cost savings.",
+        "cta-primary": "Try Now",
+        "cta-secondary": "Review the Flow"
+      },
+      "1": {
+        "title-1": "Lease a container in 5",
+        "title-2": "minutes on one screen",
+        "desc": "Need Izmir - Mersin 40HC one-way or standard lease (return to defined depot)? Enter route and dates; get offers from multiple suppliers. View price, duration and terms side-by-side and pick the best option in minutes.",
+        "cta-primary": "Lease Now",
+        "cta-secondary": "View Plans"
+      },
+      "2": {
+        "title-1": "Review offers",
+        "title-2": "or create a request",
+        "desc": "Compare existing freight offers by route and conditions or enter your demand; verified companies send you quotes within minutes. Track the shipment end-to-end from the panel.",
+        "cta-primary": "Create Freight Request",
+        "cta-secondary": "Browse Routes / Offers"
+      },
+      "3": {
+        "title-1": "We keep",
+        "title-2": "Improving",
+        "desc": "We continuously add new features, integrations and marketplaces — join the journey.",
+        "cta-primary": "Join Us — Start Free",
+        "cta-secondary": "Our Roadmap"
+      }
+    }
+  },
+  "testimonial": {
+    "ankit": {
+      "quote": "\"Find Your Container, Manage Your Freight, Digitize Your Route\"",
+      "cta": "Start Digitizing",
+      "image-alt": "Open Container",
+      "label": "Open Container"
+    },
+    "list": {
+      "0": {
+        "quote": "Thanks to OpenContainer we manage our container leasing and freight processes from a single screen; our costs dropped and our decision time shortened."
+      },
+      "1": {
+        "quote": "I'm impressed by OpenContainer's strong security measures and seamless integrations. It's rare to see such an advanced technology balanced with a truly user-friendly application."
+      },
+      "2": {
+        "quote": "The user-friendly interface, quote comparison and tracking features let us provide customers real-time information; satisfaction has clearly increased."
+      }
+    },
+    "section": {
+      "heading": "What Our Customers Say",
+      "description": "Read what our customers say about their OpenContainer experience.",
+      "roles": {
+        "0": "CEO",
+        "1": "CTO",
+        "2": "Customer Success"
+      }
+    }
+  },
+  "what-can-you-do": {
+    "heading-line-1": "With Open Container",
+    "heading-line-2": "what can you do?",
+    "cta-more": "See details",
+    "cases": {
+      "0": {
+        "badge": "Product Management",
+        "title": "You can add products and start selling immediately.",
+        "desc": "Add your products to your store in a few clicks, publish the listing and start selling.",
+        "image-alt": "Product listing and selling operations"
+      },
+      "1": {
+        "badge": "Freight",
+        "title": "Freight: review offers or create a request",
+        "desc": "Enter your route and dates; receive multiple offers from verified companies within minutes. Compare existing freight offers, agree on the best terms and track the shipment end-to-end.",
+        "image-alt": "Freight operations and port view"
+      },
+      "2": {
+        "badge": "Price comparison",
+        "title": "You can compare pricing",
+        "desc": "Compare instant freight quotes from different lines and agents, capture the best cost.",
+        "image-alt": "Price and logo comparison visual"
+      },
+      "3": {
+        "badge": "Single platform",
+        "title": "Control all container operations digitally in one place",
+        "desc": "Manage booking, tracking, invoicing and reporting processes end-to-end from a single platform.",
+        "image-alt": "Digital management of container operations"
+      }
+    }
+  },
+  "contact": {
+    "recurring": {
+      "heading": "Contact Us",
+      "description": "Use the form below to reach our team."
+    },
+    "form": {
+      "heading": "Get in Touch",
+      "intro": "Fill out the form for questions, feedback or quote requests. Our team will get back to you shortly. Or reach us via the contact details below.",
+      "contact-info": {
+        "phone-label": "Phone Number",
+        "email-label": "Email",
+        "phone": "+90 850 346 07 25",
+        "email": "info@opencontainer.co"
+      },
+      "fields": {
+        "full_name": { "label": "Full Name", "placeholder": "Your Name Surname" },
+        "phone": { "label": "Phone Number", "placeholder": "+90 5xx xxx xx xx" },
+        "email": { "label": "Email", "placeholder": "example@email.com" },
+        "subject": { "label": "Subject", "placeholder": "Subject" },
+        "message": { "label": "Message", "placeholder": "Type your message... (Min 10 characters)" }
+      },
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Form submitted successfully.",
+      "error": "Form could not be sent. Please try again."
+    }
+  },
+  "pricing": {
+    "templates": {
+      "heading": "Pricing Plans",
+      "description-line-1": "Choose the plan that fits your needs",
+      "description-line-2": "and get started.",
+      "cta-more": "Learn More"
+    },
+    "plans": {
+      "bronze": {
+        "name": "Bronze Plan",
+        "tag": "(Buyer Package)",
+        "price": "$121.97",
+        "desc": "Ideal starter package for individual users and small businesses.",
+        "badge-buyer": "BUYER",
+        "features": [
+          "View basic container information",
+          "Access seller details",
+          "Create container listings"
+        ]
+      },
+      "silver": {
+        "name": "Silver Plan",
+        "tag": "(Seller Package)",
+        "price": "$396.47",
+        "desc": "Enhanced solution for SMEs and regular leasing users.",
+        "badge-buyer": "BUYER",
+        "badge-seller": "SELLER",
+        "recommended": "Recommended",
+        "features": [
+          "All features in Bronze",
+          "Create 15 container listings per month",
+          "Billing integration"
+        ]
+      },
+      "gold": {
+        "name": "Gold Plan",
+        "tag": "(Seller Package)",
+        "price": "$548.97",
+        "desc": "Comprehensive solution for large enterprises, dealers and professional sellers.",
+        "badge-buyer": "BUYER",
+        "badge-seller": "SELLER",
+        "features": [
+          "All features in Silver",
+          "Unlimited container listings",
+          "Dedicated support and consulting services"
+        ]
+      },
+      "buy": "BUY NOW"
+    }
+  },
+  "cta-final": {
+    "title-line-1": "Turkey's Largest",
+    "title-line-2": "Container Marketplace",
+    "description": "Find containers, compare offers and pay securely. Best price guarantee.",
+    "benefits": [
+      "Instant Booking — Reserve with one click",
+      "Best Price — Compare offers",
+      "Secure Payment — Protected by Iyzico & PayTr",
+      "Direct Seller Access — Connect with supplier/partner"
+    ],
+    "cta-buyer": "Explore Containers",
+    "cta-seller": "Become a Seller",
+    "secure": "100% secure payment — Protected via Iyzico & PayTr.",
+    "image-alt": "Container marketplace — port filled with containers"
+  },
+  "site": {
+    "name": "OPENCONTAINER",
+    "tagline": "Open Platform"
+  },
+  "nav": {
+    "pricing": "Pricing",
+    "product": "Product",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "language":"Language"
+  },
+  "cta": {
+    "start": "Get Started"
+  },
+  "footer": {
+    "newsletter": "Newsletter",
+    "newsletter_desc": "Subscribe to get the latest updates first.",
+    "send": "Send",
+    "address": {
+      "line-1": "Adalet Mah. Manas Blv. Folkart Towers No: 39 Apt: 3408",
+      "line-2": "Bayraklı/İzmir, 35530"
+    },
+    "contact-link": "Contact",
+    "columns": {
+      "info": {
+        "title": "Information",
+        "links": [
+          { "label": "About Us", "href": "#" },
+          { "label": "Blog", "href": "#" },
+          { "label": "My Favorites", "href": "#" },
+          { "label": "Contact", "href": "#" },
+          { "label": "Our Office", "href": "#" },
+          { "label": "My Account", "href": "#" }
+        ]
+      },
+      "customer": {
+        "title": "Customer Service",
+        "links": [
+          { "label": "KVKK Disclosure", "href": "https://opencontainer.co/tr/personel-data" },
+          { "label": "Explicit Consent Text", "href": "https://opencontainer.co/tr/service-aggrement" },
+          { "label": "User Agreement", "href": "https://opencontainer.co/tr/user-aggrement" },
+          { "label": "Distance Sales Agreement", "href": "https://opencontainer.co/tr/distance-sales" },
+          { "label": "Privacy & Cookie Policy", "href": "https://opencontainer.co/tr/privacy-policy" },
+          { "label": "FAQ", "href": "https://opencontainer.co/tr/FAQs" }
+        ]
+      }
+    },
+    "email-placeholder": "Your Email Address",
+    "consent": {
+      "prefix": "By subscribing you accept the following terms:",
+      "open-consent": "Explicit Consent Text",
+      "privacy-policy": "Privacy & Cookie Policy",
+      "and": "and"
+    },
+    "rights": "©2025 Orizora. All Rights Reserved."
+  }
+}
