@@ -25,7 +25,7 @@ export default function Navigation() {
         <Link href={`/${locale}`} aria-label="Home" className="shrink-0">
           <div className="flex items-center">
             <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/open-container-1758220833879.png"
+              src="/logo/svg/open-container-1.svg"
               alt="Site logo"
               width={48}
               height={48}
@@ -85,7 +85,7 @@ export default function Navigation() {
             <div className="flex items-center justify-between px-4 py-4 border-b border-gray-100">
               <Link href={`/${locale}`} aria-label="Home" className="flex items-center gap-2" onClick={() => { /* Drawer auto closes via link navigation? Provide close button anyway */ }}>
                 <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/open-container-1758220833879.png"
+                  src="/logo/svg/open-container-1.svg"
                   alt="Site logo"
                   width={40}
                   height={40}

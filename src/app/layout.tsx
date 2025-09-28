@@ -9,6 +9,10 @@ import { defaultLocale, getDictionary } from '@/lib/i18n/config';
 export const metadata: Metadata = {
   title: "Open Container - Konteyner Ticareti, Kiralama ve Navlun Yönetimi",
   description: "OpenContainer, konteyner ticareti, kiralama ve navlun yönetimini tek ekranda buluşturan dijital pazar yeridir.",
+  icons: {
+    icon: '/logo/svg/open-container-1.svg',
+    apple: '/logo/open-container.png',
+  },
 };
 
 export default async function RootLayout({
