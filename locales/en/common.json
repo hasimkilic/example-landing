@@ -85,10 +85,10 @@
     "cta-more": "See details",
     "cases": {
       "0": {
-        "badge": "Product Management",
-        "title": "You can add products and start selling immediately.",
-        "desc": "Add your products to your store in a few clicks, publish the listing and start selling.",
-        "image-alt": "Product listing and selling operations"
+        "badge": "Container Management",
+        "title": "You can add containers and start selling immediately.",
+        "desc": "Add your containers to your store in a few clicks, publish the listing and start selling.",
+        "image-alt": "Container listing and selling operations"
       },
       "1": {
         "badge": "Freight",
