@@ -85,10 +85,10 @@
     "cta-more": "Detayları gör",
     "cases": {
       "0": {
-        "badge": "Ürün Yönetimi",
-        "title": "İlk adımda ürün yükleyip satabilirsin",
-        "desc": "Mağazana ürünlerini birkaç tıklamayla ekle, ilanını yayımla ve satışa başla.",
-        "image-alt": "Ürün yükleme ve satış işlemleri"
+        "badge": "Konteyner Yönetimi",
+        "title": "Bir kaç adımda konteyner yükleyip satabilirsin",
+        "desc": "Mağazana konteynerlerini birkaç tıklamayla ekle, ilanını yayımla ve satışa başla.",
+        "image-alt": "Konteyner yükleme ve satış işlemleri"
       },
       "1": {
         "badge": "Navlun",
