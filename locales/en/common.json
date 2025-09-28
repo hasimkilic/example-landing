@@ -55,8 +55,8 @@
     "ankit": {
       "quote": "\"Find Your Container, Manage Your Freight, Digitize Your Route\"",
       "cta": "Start Digitizing",
-      "image-alt": "Open Container",
-      "label": "Open Container"
+      "image-alt": "OpenContainer",
+      "label": "OpenContainer"
     },
     "list": {
       "0": {
@@ -73,14 +73,14 @@
       "heading": "What Our Customers Say",
       "description": "Read what our customers say about their OpenContainer experience.",
       "roles": {
-        "0": "Buyer & Seller in Open Container",
-        "1": "Buyer & Seller in Open Container",
-        "2": "Buyer & Seller in Open Container"
+        "0": "Buyer & Seller in OpenContainer",
+        "1": "Buyer & Seller in OpenContainer",
+        "2": "Buyer & Seller in OpenContainer"
       }
     }
   },
   "what-can-you-do": {
-    "heading-line-1": "With Open Container",
+    "heading-line-1": "With OpenContainer",
     "heading-line-2": "what can you do?",
     "cta-more": "See details",
     "cases": {

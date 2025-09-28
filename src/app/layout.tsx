@@ -7,7 +7,7 @@ import { I18nProvider } from '@/lib/i18n/I18nProvider';
 import { defaultLocale, getDictionary } from '@/lib/i18n/config';
 
 export const metadata: Metadata = {
-  title: "Open Container - Konteyner Ticareti, Kiralama ve Navlun Yönetimi",
+  title: "OpenContainer - Konteyner Ticareti, Kiralama ve Navlun Yönetimi",
   description: "OpenContainer, konteyner ticareti, kiralama ve navlun yönetimini tek ekranda buluşturan dijital pazar yeridir.",
   icons: {
     icon: '/logo/svg/open-container-1.svg',
@@ -33,7 +33,7 @@ export default async function RootLayout({
           data-include-search-params="true"
           data-only-in-iframe="true"
           data-debug="true"
-          data-custom-data='{"appName": "Open Container", "version": "1.0.0", "greeting": "hi"}'
+          data-custom-data='{"appName": "OpenContainer", "version": "1.0.0", "greeting": "hi"}'
         />
         <I18nProvider locale={defaultLocale} dict={dict}>
           {children}

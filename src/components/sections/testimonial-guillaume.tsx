@@ -26,7 +26,7 @@ const TestimonialGuillaume = () => {
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="absolute bottom-0 inset-x-0 p-6 rounded-b-xl bg-gradient-to-t from-black/60 to-transparent text-white">
-              <p className="font-bold text-lg text-white">Open Container</p>
+              <p className="font-bold text-lg text-white">OpenContainer</p>
               {/* <p className="text-sm">uSERP'te Dijital PR Yöneticisi</p> */}
             </div>
           </div>

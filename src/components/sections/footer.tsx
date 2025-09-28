@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Facebook, Instagram, Phone, Mail, Youtube, ArrowUpRight, Globe, DollarSign, X as XIcon } from 'lucide-react';
+import { Facebook, Instagram, Phone, Mail, Youtube, ArrowUpRight, Globe,Linkedin, DollarSign, X as XIcon } from 'lucide-react';
 import ShinyText from '../ui/ShinyText';
 import GradientText from '../ui/GradientText';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
@@ -65,8 +65,9 @@ const Footer = () => {
               {[
                 { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com/opencontainer' },
                 { Icon: XIcon, label: 'X', href: 'https://twitter.com/opencontainer' },
-                { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com/opencontainer' },
+                { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/opencontainerco' },
                 { Icon: Youtube, label: 'YouTube', href: 'https://youtube.com/opencontainer' },
+                { Icon: Linkedin, label: 'Blog', href: 'https://www.linkedin.com/company/opencontainer_official/' },
               ].map(({ Icon, label, href }) => (
                 <a key={label} href={href} aria-label={label} className="h-10 w-10 rounded-full border flex items-center justify-center text-neutral-800 hover:bg-neutral-100 transition-colors">
                   <Icon className="h-5 w-5" />
@@ -87,7 +88,6 @@ const Footer = () => {
             />
           </div>
 
-          {/* Newsletter + badge */}
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <div>
               <h4 className="text-lg font-semibold text-neutral-900 mb-4">{t('footer.newsletter')}</h4>

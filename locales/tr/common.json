@@ -55,8 +55,8 @@
     "ankit": {
       "quote": "\"Konteynerini Bul, Navlununu Yönet, Rotanı Dijitale Çevir\"",
       "cta": "Dijitalleşmeye Başla",
-      "image-alt": "Open Container",
-      "label": "Open Container"
+      "image-alt": "OpenContainer",
+      "label": "OpenContainer"
     },
     "list": {
       "0": {
@@ -73,14 +73,14 @@
       "heading": "Müşterilerimizin Yorumları",
       "description": "Müşterilerimizin OpenContainer hakkındaki deneyimlerini okuyun.",
       "roles": {
-        "0": "Open Container'da Alıcı & Satıcı",
-        "1": "Open Container'da Alıcı & Satıcı",
-        "2": "Open Container'da Alıcı & Satıcı"
+        "0": "OpenContainer'da Alıcı & Satıcı",
+        "1": "OpenContainer'da Alıcı & Satıcı",
+        "2": "OpenContainer'da Alıcı & Satıcı"
       }
     }
   },
   "what-can-you-do": {
-    "heading-line-1": "Open Container ile",
+    "heading-line-1": "OpenContainer ile",
     "heading-line-2": "neler yapabilirsin?",
     "cta-more": "Detayları gör",
     "cases": {
