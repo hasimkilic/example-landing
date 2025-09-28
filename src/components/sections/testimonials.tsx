@@ -16,7 +16,7 @@ type Testimonial = {
 // Non-translatable structural data; quotes fetched via i18n keys
 const testimonials: Array<Omit<Testimonial, 'quote'> & { key: number }> = [
   { key: 0, name: "Galip B.", role: "Alıcı & Satıcı", image: "/images/about-us.jpg" },
-  { key: 1, name: "Ahmet A.", role: "Alıcı & Satıcı", image: "/images/real-person.avif" },
+  { key: 1, name: "Paxcon I.", role: "Alıcı & Satıcı", image: "/images/real-person.avif" },
   { key: 2, name: "Ahmet A.", role: "Alıcı & Satıcı", image: "/images/real-person-2.avif" },
 ];
 
