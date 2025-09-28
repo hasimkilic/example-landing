@@ -73,9 +73,9 @@
       "heading": "Müşterilerimizin Yorumları",
       "description": "Müşterilerimizin OpenContainer hakkındaki deneyimlerini okuyun.",
       "roles": {
-        "0": "CEO",
-        "1": "CTO",
-        "2": "Müşteri Hizmetleri"
+        "0": "Open Container'da Alıcı & Satıcı",
+        "1": "Open Container'da Alıcı & Satıcı",
+        "2": "Open Container'da Alıcı & Satıcı"
       }
     }
   },
